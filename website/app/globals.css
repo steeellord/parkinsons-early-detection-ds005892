@@ -553,3 +553,68 @@ footer .foot-note { max-width: 520px; line-height: 1.6; margin-top: 6px; }
   .reveal { opacity: 1; transform: none; }
   .ambient-glow { display: none; }
 }
+
+/* ---------- results in plain words ---------- */
+.howto { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+.howto summary { cursor: pointer; font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+.howto summary:hover { color: var(--teal); }
+.howto ul { margin: 12px 0 0; padding-left: 20px; display: grid; gap: 8px; }
+.howto li { color: var(--muted); font-size: 0.93rem; }
+.howto li b { color: var(--ink); }
+.res-toggle { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 16px; }
+.res-toggle button {
+  padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line-strong);
+  background: transparent; color: var(--muted); font-size: 0.92rem; font-weight: 600;
+  font-family: var(--font-sans); cursor: pointer; transition: all 0.2s var(--spring);
+}
+.res-toggle button:hover { color: var(--ink); border-color: var(--teal); }
+.res-toggle button.active { background: var(--teal); color: #04211d; border-color: var(--teal); }
+.res-list { display: grid; gap: 14px; }
+.res-row { padding: 0; overflow: hidden; }
+.res-head {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  background: none; border: 0; padding: 20px 22px; cursor: pointer; color: var(--ink);
+  font-family: var(--font-sans);
+}
+.res-head:hover { background: rgba(158, 192, 205, 0.05); }
+.res-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.dot-strong { background: var(--teal); box-shadow: 0 0 10px rgba(45, 212, 191, 0.7); }
+.dot-middling { background: var(--amber); box-shadow: 0 0 10px rgba(251, 191, 36, 0.6); }
+.dot-weak { background: var(--rose); box-shadow: 0 0 10px rgba(248, 113, 113, 0.55); }
+.res-titles { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.res-titles b { font-size: 1.02rem; }
+.res-titles span { color: var(--muted); font-size: 0.9rem; }
+.res-score { text-align: right; flex: none; display: flex; flex-direction: column; gap: 2px; }
+.res-score b { font-size: 1.15rem; color: var(--teal); }
+.res-score span { color: var(--faint); font-size: 0.8rem; }
+.res-chev { font-size: 1.3rem; color: var(--faint); flex: none; width: 22px; text-align: center; }
+.res-body { border-top: 1px solid var(--line); padding: 20px 22px 22px; }
+.res-metrics { display: grid; gap: 4px; }
+.res-metrics .kv em { font-size: 0.85rem; }
+.res-cm { margin-top: 20px; }
+.res-cm h4 { margin-bottom: 12px; }
+.cm-grid { border-collapse: separate; border-spacing: 4px; margin: 0 auto; }
+.cm-grid th { color: var(--faint); font-size: 0.8rem; padding: 6px 8px; text-align: center; }
+.cm-grid th[scope="row"] { text-align: right; }
+.cm-grid td {
+  width: 52px; height: 44px; text-align: center; font-weight: 700; font-size: 1.05rem;
+  border-radius: 8px; color: var(--ink); cursor: default;
+}
+.cm-axis { font-weight: 400; font-size: 0.78rem; }
+.cm-explain { margin-top: 12px; font-size: 0.93rem; color: var(--muted); min-height: 1.4em; text-align: center; }
+.class-bars { display: grid; gap: 10px; margin-top: 16px; }
+.class-bar-row { display: grid; grid-template-columns: 190px 1fr 44px; gap: 12px; align-items: center; font-size: 0.9rem; color: var(--muted); }
+.class-bar-row b { color: var(--ink); text-align: right; }
+.class-bar { height: 8px; border-radius: 99px; background: rgba(158, 192, 205, 0.14); overflow: hidden; }
+.class-bar > div { height: 100%; border-radius: 99px; background: var(--teal); transition: width 0.5s var(--spring); }
+.compare-card { margin-top: 18px; }
+.compare-pickers { margin-top: 14px; }
+.compare-grid { margin-top: 18px; }
+.compare-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 18px; background: var(--surface-2); }
+.compare-col > p { color: var(--muted); font-size: 0.92rem; margin: 8px 0 12px; }
+.limits-card { margin-top: 18px; }
+.limits-card b { color: var(--ink); }
+
+/* ---------- scan upload ---------- */
+.scan-files { display: grid; gap: 10px; margin-top: 14px; }
+.scan-files .file-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; }

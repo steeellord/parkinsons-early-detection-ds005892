@@ -187,9 +187,15 @@ export function parseConnectivityCSV(text: string): ParseResult {
   return { ok: true, size: n, matrix, display };
 }
 
+export const INFERENCE_URL =
+  (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_INFERENCE_URL) || '';
+
 export type ResultsFile = {
   status: string;
   models: Array<Record<string, unknown>>;
+  binary_models?: Array<Record<string, unknown>>;
+  best_model?: string;
+  n_subjects?: number;
   metrics?: Record<string, unknown> | null;
   note?: string;
   last_updated?: string;
