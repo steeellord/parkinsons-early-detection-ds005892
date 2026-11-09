@@ -1,0 +1,441 @@
+2026-11-09 12:16:24,179 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:16:24,179 INFO LIMITATION: affine-only MNI normalisation; no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:16:24,179 INFO Fetching Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:16:38,970 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:16:38,970 INFO LIMITATION: affine-only MNI normalisation; no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:16:38,970 INFO Fetching Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:17:03,967 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:17:03,967 INFO LIMITATION: affine-only MNI normalisation; no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:17:03,968 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:17:03,968 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:17:03,969 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:17:04,164 INFO MNI template shape (182, 218, 182) spacing (1.0, 1.0, 1.0)
+2026-11-09 12:17:04,167 INFO Subjects to process: 1
+2026-11-09 12:17:04,191 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:17:04,191 INFO [sub-MJF001] motion correction ...
+2026-11-09 12:22:31,380 INFO [sub-MJF001] motion correction done (327.2s)
+2026-11-09 12:22:31,389 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:23:55,453 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:23:55,453 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:23:55,453 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:23:55,454 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:23:55,454 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:23:55,607 INFO MNI template shape (182, 218, 182) spacing (1.0, 1.0, 1.0)
+2026-11-09 12:23:55,614 INFO Subjects to process: 1
+2026-11-09 12:23:55,634 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:23:56,190 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:25:43,526 ERROR [sub-MJF001] FAILED: Set imagetype 3 to transform time series images.
+Traceback (most recent call last):
+  File "/home/hatch/workspace/parkinsons-early-detection/training/preprocess.py", line 160, in main
+    bold_mni = ants.apply_transforms(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/ants/registration/apply_transforms.py", line 145, in apply_transforms
+    raise Exception('Set imagetype 3 to transform time series images.')
+Exception: Set imagetype 3 to transform time series images.
+2026-11-09 12:25:43,593 INFO === DONE: 0 ok, 1 failed (['sub-MJF001']) in 1.9 min ===
+2026-11-09 12:26:00,775 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:26:00,775 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:26:00,775 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:26:00,776 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:26:00,776 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:26:00,977 INFO MNI template shape (182, 218, 182) spacing (1.0, 1.0, 1.0)
+2026-11-09 12:26:00,980 INFO Subjects to process: 1
+2026-11-09 12:26:01,009 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:26:01,667 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:28:52,647 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:28:52,647 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:28:52,647 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:28:52,648 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:28:52,648 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:28:53,590 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:28:53,595 INFO Subjects to process: 1
+2026-11-09 12:28:53,622 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:28:54,216 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:30:30,178 ERROR [sub-MJF001] FAILED: 'ANTsImage' object has no attribute 'affine'
+Traceback (most recent call last):
+  File "/home/hatch/workspace/parkinsons-early-detection/training/preprocess.py", line 170, in main
+    bold_mni.numpy(), affine=np.array(mni_template.affine))
+                                      ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ANTsImage' object has no attribute 'affine'
+2026-11-09 12:30:30,222 INFO === DONE: 0 ok, 1 failed (['sub-MJF001']) in 1.7 min ===
+2026-11-09 12:30:44,320 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:30:44,321 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:30:44,321 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:30:44,321 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:30:44,321 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:30:45,019 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:30:45,024 INFO Subjects to process: 1
+2026-11-09 12:30:45,030 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:30:45,398 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:32:45,163 INFO [sub-MJF001] normalisation done (120.1s)
+2026-11-09 12:32:45,261 ERROR [sub-MJF001] FAILED: [Errno 2] No such file or directory: '/home/hatch/workspace/parkinsons-early-detection/training/features/.tmp_sub-MJF001_bold_mni.nii.gz'
+Traceback (most recent call last):
+  File "/home/hatch/workspace/parkinsons-early-detection/training/preprocess.py", line 185, in main
+    ts_series = masker.fit_transform(bold_proc)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 327, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/maskers/nifti_labels_masker.py", line 633, in fit_transform
+    return self.fit(imgs).transform(
+           ^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/maskers/base_masker.py", line 402, in fit
+    return self._fit(imgs)
+           ^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/maskers/nifti_labels_masker.py", line 583, in _fit
+    imgs, dims = compute_middle_image(imgs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/maskers/_utils.py", line 20, in compute_middle_image
+    img = image.index_img(img, dim[-1] // 2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/image/image.py", line 1132, in index_img
+    return _index_img(imgs, index)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nilearn/image/image.py", line 1191, in _index_img
+    data = _get_data(img.slicer[..., index])
+                     ~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/spatialimages.py", line 386, in __getitem__
+    dataobj = self.img.dataobj[slicer]
+              ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/arrayproxy.py", line 461, in __getitem__
+    return self._get_scaled(dtype=None, slicer=slicer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/arrayproxy.py", line 422, in _get_scaled
+    scaled = apply_read_scaling(self._get_unscaled(slicer=slicer), scl_slope, scl_inter)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/arrayproxy.py", line 400, in _get_unscaled
+    with self._get_fileobj() as fileobj:
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/arrayproxy.py", line 384, in _get_fileobj
+    with openers.ImageOpener(self.file_like, keep_open=False) as opener:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/openers.py", line 110, in __init__
+    self.fobj = opener(fileish, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/_compression.py", line 143, in gzip_open
+    gzip_file = DeterministicGzipFile(filename, mode, compresslevel, mtime=mtime)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hatch/workspace/parkinsons-early-detection/training/venv/lib/python3.12/site-packages/nibabel/_compression.py", line 101, in __init__
+    fileobj = self.myfileobj = ty.cast('io.FileIO', open(filename, modestr))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/hatch/workspace/parkinsons-early-detection/training/features/.tmp_sub-MJF001_bold_mni.nii.gz'
+2026-11-09 12:32:45,291 INFO === DONE: 0 ok, 1 failed (['sub-MJF001']) in 2.1 min ===
+2026-11-09 12:33:34,574 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:33:34,574 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:33:34,574 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:33:34,574 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:33:34,575 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:33:35,483 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:33:35,484 INFO Subjects to process: 1
+2026-11-09 12:33:35,503 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:33:36,041 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:35:21,892 ERROR [sub-MJF001] FAILED: could not broadcast input array from shape (4,4) into shape (3,3)
+Traceback (most recent call last):
+  File "/home/hatch/workspace/parkinsons-early-detection/training/preprocess.py", line 179, in main
+    A_lps[:3, :3] = D @ np.diag(s)
+    ~~~~~^^^^^^^^
+ValueError: could not broadcast input array from shape (4,4) into shape (3,3)
+2026-11-09 12:35:21,917 INFO === DONE: 0 ok, 1 failed (['sub-MJF001']) in 1.8 min ===
+2026-11-09 12:35:38,463 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:35:38,463 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:35:38,464 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:35:38,464 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:35:38,464 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:35:39,169 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:35:39,178 INFO Subjects to process: 1
+2026-11-09 12:35:39,202 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:35:39,611 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:36:51,797 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:36:51,800 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:36:51,801 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:36:51,801 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:36:51,801 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:36:52,578 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:36:52,586 INFO Subjects to process: 1
+2026-11-09 12:36:52,623 INFO [sub-MJF001] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:36:53,118 INFO [sub-MJF001] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:38:42,850 INFO [sub-MJF001] normalisation done (110.3s)
+2026-11-09 12:39:04,086 INFO [sub-MJF001] time series (200, 100) (131.5s)
+2026-11-09 12:39:04,176 INFO [sub-MJF001] OK fc saved, mean|r|=0.412 (total 131.6s)
+2026-11-09 12:39:04,176 INFO === DONE: 1 ok, 0 failed ([]) in 2.3 min ===
+2026-11-09 12:39:29,972 INFO === Preprocessing ds005892 (raw BIDS, no fMRIPrep derivatives) ===
+2026-11-09 12:39:29,973 INFO LIMITATION: affine-only MNI normalisation; motion correction skipped (327 s/subject on this VM); no confound regressors (no motion params in raw BIDS). See module docstring.
+2026-11-09 12:39:29,973 INFO Loading local Schaefer 2018 100-parcel atlas ...
+2026-11-09 12:39:29,973 INFO Atlas: /home/hatch/workspace/parkinsons-early-detection/training/atlas/Schaefer2018_100Parcels_7Networks_order_FSLMNI152_2mm.nii.gz
+2026-11-09 12:39:29,973 INFO Loading MNI152 template via ANTsPy ...
+2026-11-09 12:39:30,941 INFO MNI template (2mm) shape (91, 109, 91) spacing (2.0, 2.0, 2.0)
+2026-11-09 12:39:30,948 INFO Subjects to process: 55
+2026-11-09 12:39:30,949 INFO [sub-MJF001] already processed, skipping
+2026-11-09 12:39:30,987 INFO [sub-MJF002] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:39:31,649 INFO [sub-MJF002] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:40:58,140 INFO [sub-MJF002] normalisation done (87.2s)
+2026-11-09 12:41:18,521 INFO [sub-MJF002] time series (200, 100) (107.6s)
+2026-11-09 12:41:18,530 INFO [sub-MJF002] OK fc saved, mean|r|=0.308 (total 107.6s)
+2026-11-09 12:41:18,549 INFO [sub-MJF003] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:41:19,213 INFO [sub-MJF003] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:42:45,204 INFO [sub-MJF003] normalisation done (86.7s)
+2026-11-09 12:43:07,387 INFO [sub-MJF003] time series (200, 100) (108.9s)
+2026-11-09 12:43:07,390 INFO [sub-MJF003] OK fc saved, mean|r|=0.494 (total 108.9s)
+2026-11-09 12:43:07,424 INFO [sub-MJF006] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:43:08,149 INFO [sub-MJF006] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:44:45,616 INFO [sub-MJF006] normalisation done (98.2s)
+2026-11-09 12:45:07,286 INFO [sub-MJF006] time series (200, 100) (119.9s)
+2026-11-09 12:45:07,289 INFO [sub-MJF006] OK fc saved, mean|r|=0.507 (total 119.9s)
+2026-11-09 12:45:07,314 INFO [sub-MJF007] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:45:08,004 INFO [sub-MJF007] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:46:38,836 INFO [sub-MJF007] normalisation done (91.5s)
+2026-11-09 12:46:59,624 INFO [sub-MJF007] time series (200, 100) (112.3s)
+2026-11-09 12:46:59,627 INFO [sub-MJF007] OK fc saved, mean|r|=0.544 (total 112.3s)
+2026-11-09 12:46:59,661 INFO [sub-MJF008] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:47:00,389 INFO [sub-MJF008] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:48:48,824 INFO [sub-MJF008] normalisation done (109.2s)
+2026-11-09 12:49:09,290 INFO [sub-MJF008] time series (200, 100) (129.7s)
+2026-11-09 12:49:09,298 INFO [sub-MJF008] OK fc saved, mean|r|=0.295 (total 129.7s)
+2026-11-09 12:49:09,329 INFO [sub-MJF009] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:49:09,832 INFO [sub-MJF009] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:50:41,887 INFO [sub-MJF009] normalisation done (92.6s)
+2026-11-09 12:51:01,856 INFO [sub-MJF009] time series (200, 100) (112.6s)
+2026-11-09 12:51:01,859 INFO [sub-MJF009] OK fc saved, mean|r|=0.377 (total 112.6s)
+2026-11-09 12:51:01,877 INFO [sub-MJF010] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:51:02,648 INFO [sub-MJF010] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:52:40,698 INFO [sub-MJF010] normalisation done (98.8s)
+2026-11-09 12:53:01,595 INFO [sub-MJF010] time series (200, 100) (119.7s)
+2026-11-09 12:53:01,610 INFO [sub-MJF010] OK fc saved, mean|r|=0.361 (total 119.8s)
+2026-11-09 12:53:01,633 INFO [sub-MJF011] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 191)
+2026-11-09 12:53:02,359 INFO [sub-MJF011] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:54:36,948 INFO [sub-MJF011] normalisation done (95.3s)
+2026-11-09 12:54:59,111 INFO [sub-MJF011] time series (200, 100) (117.5s)
+2026-11-09 12:54:59,120 INFO [sub-MJF011] OK fc saved, mean|r|=0.501 (total 117.5s)
+2026-11-09 12:54:59,157 INFO [sub-MJF012] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:54:59,960 INFO [sub-MJF012] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:56:27,025 INFO [sub-MJF012] normalisation done (87.9s)
+2026-11-09 12:56:47,960 INFO [sub-MJF012] time series (200, 100) (108.8s)
+2026-11-09 12:56:47,965 INFO [sub-MJF012] OK fc saved, mean|r|=0.482 (total 108.8s)
+2026-11-09 12:56:47,989 INFO [sub-MJF013] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:56:48,670 INFO [sub-MJF013] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 12:58:47,712 INFO [sub-MJF013] normalisation done (119.7s)
+2026-11-09 12:59:08,055 INFO [sub-MJF013] time series (200, 100) (140.1s)
+2026-11-09 12:59:08,069 INFO [sub-MJF013] OK fc saved, mean|r|=0.395 (total 140.1s)
+2026-11-09 12:59:08,110 INFO [sub-MJF014] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 12:59:08,646 INFO [sub-MJF014] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:00:53,096 INFO [sub-MJF014] normalisation done (105.0s)
+2026-11-09 13:01:13,403 INFO [sub-MJF014] time series (200, 100) (125.3s)
+2026-11-09 13:01:13,405 INFO [sub-MJF014] OK fc saved, mean|r|=0.374 (total 125.3s)
+2026-11-09 13:01:13,441 INFO [sub-MJF015] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:01:13,932 INFO [sub-MJF015] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:02:46,342 INFO [sub-MJF015] normalisation done (92.9s)
+2026-11-09 13:03:06,896 INFO [sub-MJF015] time series (200, 100) (113.5s)
+2026-11-09 13:03:06,899 INFO [sub-MJF015] OK fc saved, mean|r|=0.303 (total 113.5s)
+2026-11-09 13:03:06,921 INFO [sub-MJF016] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:03:07,687 INFO [sub-MJF016] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:04:46,403 INFO [sub-MJF016] normalisation done (99.5s)
+2026-11-09 13:05:08,448 INFO [sub-MJF016] time series (200, 100) (121.5s)
+2026-11-09 13:05:08,459 INFO [sub-MJF016] OK fc saved, mean|r|=0.394 (total 121.6s)
+2026-11-09 13:05:08,476 INFO [sub-MJF017] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:05:09,255 INFO [sub-MJF017] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:06:37,284 INFO [sub-MJF017] normalisation done (88.8s)
+2026-11-09 13:06:59,317 INFO [sub-MJF017] time series (200, 100) (110.9s)
+2026-11-09 13:06:59,323 INFO [sub-MJF017] OK fc saved, mean|r|=0.343 (total 110.9s)
+2026-11-09 13:06:59,351 INFO [sub-MJF019] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:07:00,155 INFO [sub-MJF019] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:08:40,624 INFO [sub-MJF019] normalisation done (101.3s)
+2026-11-09 13:09:00,879 INFO [sub-MJF019] time series (200, 100) (121.6s)
+2026-11-09 13:09:00,882 INFO [sub-MJF019] OK fc saved, mean|r|=0.537 (total 121.6s)
+2026-11-09 13:09:00,911 INFO [sub-MJF020] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:09:01,659 INFO [sub-MJF020] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:10:28,001 INFO [sub-MJF020] normalisation done (87.1s)
+2026-11-09 13:10:48,107 INFO [sub-MJF020] time series (200, 100) (107.2s)
+2026-11-09 13:10:48,110 INFO [sub-MJF020] OK fc saved, mean|r|=0.368 (total 107.2s)
+2026-11-09 13:10:48,129 INFO [sub-MJF024] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:10:48,791 INFO [sub-MJF024] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:12:16,929 INFO [sub-MJF024] normalisation done (88.8s)
+2026-11-09 13:12:37,760 INFO [sub-MJF024] time series (200, 100) (109.6s)
+2026-11-09 13:12:37,762 INFO [sub-MJF024] OK fc saved, mean|r|=0.415 (total 109.7s)
+2026-11-09 13:12:37,785 INFO [sub-MJF026] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:12:38,276 INFO [sub-MJF026] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:14:12,424 INFO [sub-MJF026] normalisation done (94.7s)
+2026-11-09 13:14:35,070 INFO [sub-MJF026] time series (200, 100) (117.3s)
+2026-11-09 13:14:35,073 INFO [sub-MJF026] OK fc saved, mean|r|=0.465 (total 117.3s)
+2026-11-09 13:14:35,101 INFO [sub-MJF027] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:14:35,925 INFO [sub-MJF027] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:16:00,083 INFO [sub-MJF027] normalisation done (85.0s)
+2026-11-09 13:16:20,766 INFO [sub-MJF027] time series (200, 100) (105.7s)
+2026-11-09 13:16:20,774 INFO [sub-MJF027] OK fc saved, mean|r|=0.511 (total 105.7s)
+2026-11-09 13:16:20,805 INFO [sub-MJF028] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:16:21,534 INFO [sub-MJF028] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:18:26,273 INFO [sub-MJF028] normalisation done (125.5s)
+2026-11-09 13:18:46,637 INFO [sub-MJF028] time series (200, 100) (145.9s)
+2026-11-09 13:18:46,641 INFO [sub-MJF028] OK fc saved, mean|r|=0.431 (total 145.9s)
+2026-11-09 13:18:46,667 INFO [sub-MJF029] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:18:47,253 INFO [sub-MJF029] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:20:23,223 INFO [sub-MJF029] normalisation done (96.6s)
+2026-11-09 13:20:43,688 INFO [sub-MJF029] time series (200, 100) (117.0s)
+2026-11-09 13:20:43,690 INFO [sub-MJF029] OK fc saved, mean|r|=0.444 (total 117.0s)
+2026-11-09 13:20:43,723 INFO [sub-MJF030] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:20:44,435 INFO [sub-MJF030] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:22:17,060 INFO [sub-MJF030] normalisation done (93.4s)
+2026-11-09 13:22:39,280 INFO [sub-MJF030] time series (200, 100) (115.6s)
+2026-11-09 13:22:39,283 INFO [sub-MJF030] OK fc saved, mean|r|=0.502 (total 115.6s)
+2026-11-09 13:22:39,313 INFO [sub-MJF031] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:22:40,054 INFO [sub-MJF031] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:24:29,933 INFO [sub-MJF031] normalisation done (110.6s)
+2026-11-09 13:24:52,756 INFO [sub-MJF031] time series (200, 100) (133.5s)
+2026-11-09 13:24:52,759 INFO [sub-MJF031] OK fc saved, mean|r|=0.367 (total 133.5s)
+2026-11-09 13:24:52,779 INFO [sub-MJF032] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:24:53,548 INFO [sub-MJF032] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:26:21,385 INFO [sub-MJF032] normalisation done (88.6s)
+2026-11-09 13:26:42,166 INFO [sub-MJF032] time series (200, 100) (109.4s)
+2026-11-09 13:26:42,174 INFO [sub-MJF032] OK fc saved, mean|r|=0.406 (total 109.4s)
+2026-11-09 13:26:42,196 INFO [sub-MJF033] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:26:43,020 INFO [sub-MJF033] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:28:20,972 INFO [sub-MJF033] normalisation done (98.8s)
+2026-11-09 13:28:42,636 INFO [sub-MJF033] time series (200, 100) (120.5s)
+2026-11-09 13:28:42,643 INFO [sub-MJF033] OK fc saved, mean|r|=0.457 (total 120.5s)
+2026-11-09 13:28:42,661 INFO [sub-MJF034] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:28:43,455 INFO [sub-MJF034] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:30:09,256 INFO [sub-MJF034] normalisation done (86.6s)
+2026-11-09 13:30:31,400 INFO [sub-MJF034] time series (200, 100) (108.8s)
+2026-11-09 13:30:31,403 INFO [sub-MJF034] OK fc saved, mean|r|=0.370 (total 108.8s)
+2026-11-09 13:30:31,430 INFO [sub-MJF035] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:30:32,241 INFO [sub-MJF035] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:32:03,567 INFO [sub-MJF035] normalisation done (92.2s)
+2026-11-09 13:32:24,194 INFO [sub-MJF035] time series (200, 100) (112.8s)
+2026-11-09 13:32:24,202 INFO [sub-MJF035] OK fc saved, mean|r|=0.350 (total 112.8s)
+2026-11-09 13:32:24,230 INFO [sub-MJF036] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:32:25,024 INFO [sub-MJF036] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:34:08,109 INFO [sub-MJF036] normalisation done (103.9s)
+2026-11-09 13:34:28,291 INFO [sub-MJF036] time series (200, 100) (124.1s)
+2026-11-09 13:34:28,297 INFO [sub-MJF036] OK fc saved, mean|r|=0.477 (total 124.1s)
+2026-11-09 13:34:28,322 INFO [sub-MJF037] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:34:28,802 INFO [sub-MJF037] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:35:57,549 INFO [sub-MJF037] normalisation done (89.3s)
+2026-11-09 13:36:17,481 INFO [sub-MJF037] time series (200, 100) (109.2s)
+2026-11-09 13:36:17,484 INFO [sub-MJF037] OK fc saved, mean|r|=0.290 (total 109.2s)
+2026-11-09 13:36:17,503 INFO [sub-MJF038] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:36:18,243 INFO [sub-MJF038] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:37:55,804 INFO [sub-MJF038] normalisation done (98.3s)
+2026-11-09 13:38:18,253 INFO [sub-MJF038] time series (200, 100) (120.8s)
+2026-11-09 13:38:18,262 INFO [sub-MJF038] OK fc saved, mean|r|=0.410 (total 120.8s)
+2026-11-09 13:38:18,293 INFO [sub-MJF039] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:38:19,030 INFO [sub-MJF039] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:39:41,695 INFO [sub-MJF039] normalisation done (83.4s)
+2026-11-09 13:40:02,786 INFO [sub-MJF039] time series (200, 100) (104.5s)
+2026-11-09 13:40:02,802 INFO [sub-MJF039] OK fc saved, mean|r|=0.373 (total 104.5s)
+2026-11-09 13:40:02,834 INFO [sub-MJF040] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:40:03,579 INFO [sub-MJF040] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:41:52,215 INFO [sub-MJF040] normalisation done (109.4s)
+2026-11-09 13:42:13,245 INFO [sub-MJF040] time series (200, 100) (130.4s)
+2026-11-09 13:42:13,257 INFO [sub-MJF040] OK fc saved, mean|r|=0.471 (total 130.5s)
+2026-11-09 13:42:13,289 INFO [sub-MJF041] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:42:13,801 INFO [sub-MJF041] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:43:43,313 INFO [sub-MJF041] normalisation done (90.1s)
+2026-11-09 13:44:05,875 INFO [sub-MJF041] time series (200, 100) (112.6s)
+2026-11-09 13:44:05,878 INFO [sub-MJF041] OK fc saved, mean|r|=0.571 (total 112.6s)
+2026-11-09 13:44:05,904 INFO [sub-MJF042] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:44:06,653 INFO [sub-MJF042] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:45:46,932 INFO [sub-MJF042] normalisation done (101.1s)
+2026-11-09 13:46:08,987 INFO [sub-MJF042] time series (200, 100) (123.1s)
+2026-11-09 13:46:09,004 INFO [sub-MJF042] OK fc saved, mean|r|=0.437 (total 123.1s)
+2026-11-09 13:46:09,024 INFO [sub-MJF043] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:46:09,810 INFO [sub-MJF043] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:47:45,682 INFO [sub-MJF043] normalisation done (96.7s)
+2026-11-09 13:48:06,987 INFO [sub-MJF043] time series (200, 100) (118.0s)
+2026-11-09 13:48:06,997 INFO [sub-MJF043] OK fc saved, mean|r|=0.481 (total 118.0s)
+2026-11-09 13:48:07,027 INFO [sub-MJF044] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:48:07,836 INFO [sub-MJF044] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:49:53,112 INFO [sub-MJF044] normalisation done (106.1s)
+2026-11-09 13:50:13,391 INFO [sub-MJF044] time series (200, 100) (126.4s)
+2026-11-09 13:50:13,404 INFO [sub-MJF044] OK fc saved, mean|r|=0.580 (total 126.4s)
+2026-11-09 13:50:13,436 INFO [sub-MJF045] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:50:14,097 INFO [sub-MJF045] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:51:59,669 INFO [sub-MJF045] normalisation done (106.3s)
+2026-11-09 13:52:19,910 INFO [sub-MJF045] time series (200, 100) (126.5s)
+2026-11-09 13:52:19,913 INFO [sub-MJF045] OK fc saved, mean|r|=0.336 (total 126.5s)
+2026-11-09 13:52:19,938 INFO [sub-MJF046] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:52:20,636 INFO [sub-MJF046] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:53:48,323 INFO [sub-MJF046] normalisation done (88.4s)
+2026-11-09 13:54:10,083 INFO [sub-MJF046] time series (200, 100) (110.2s)
+2026-11-09 13:54:10,086 INFO [sub-MJF046] OK fc saved, mean|r|=0.521 (total 110.2s)
+2026-11-09 13:54:10,109 INFO [sub-MJF049] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:54:10,913 INFO [sub-MJF049] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:55:55,966 INFO [sub-MJF049] normalisation done (105.9s)
+2026-11-09 13:56:16,780 INFO [sub-MJF049] time series (200, 100) (126.7s)
+2026-11-09 13:56:16,787 INFO [sub-MJF049] OK fc saved, mean|r|=0.394 (total 126.7s)
+2026-11-09 13:56:16,818 INFO [sub-MJF050] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:56:17,351 INFO [sub-MJF050] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:57:53,484 INFO [sub-MJF050] normalisation done (96.7s)
+2026-11-09 13:58:15,227 INFO [sub-MJF050] time series (200, 100) (118.4s)
+2026-11-09 13:58:15,230 INFO [sub-MJF050] OK fc saved, mean|r|=0.388 (total 118.4s)
+2026-11-09 13:58:15,250 INFO [sub-MJF051] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 13:58:16,174 INFO [sub-MJF051] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 13:59:56,653 INFO [sub-MJF051] normalisation done (101.4s)
+2026-11-09 14:00:18,522 INFO [sub-MJF051] time series (200, 100) (123.3s)
+2026-11-09 14:00:18,528 INFO [sub-MJF051] OK fc saved, mean|r|=0.477 (total 123.3s)
+2026-11-09 14:00:18,555 INFO [sub-MJF052] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:00:19,300 INFO [sub-MJF052] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:02:02,515 INFO [sub-MJF052] normalisation done (104.0s)
+2026-11-09 14:02:23,782 INFO [sub-MJF052] time series (200, 100) (125.3s)
+2026-11-09 14:02:23,796 INFO [sub-MJF052] OK fc saved, mean|r|=0.379 (total 125.3s)
+2026-11-09 14:02:23,826 INFO [sub-MJF054] PD-MCI n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:02:24,313 INFO [sub-MJF054] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:04:05,371 INFO [sub-MJF054] normalisation done (101.6s)
+2026-11-09 14:04:25,703 INFO [sub-MJF054] time series (200, 100) (121.9s)
+2026-11-09 14:04:25,706 INFO [sub-MJF054] OK fc saved, mean|r|=0.345 (total 121.9s)
+2026-11-09 14:04:25,736 INFO [sub-MJF056] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:04:26,259 INFO [sub-MJF056] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:06:01,922 INFO [sub-MJF056] normalisation done (96.2s)
+2026-11-09 14:06:25,358 INFO [sub-MJF056] time series (200, 100) (119.7s)
+2026-11-09 14:06:25,365 INFO [sub-MJF056] OK fc saved, mean|r|=0.582 (total 119.7s)
+2026-11-09 14:06:25,388 INFO [sub-MJF057] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:06:26,091 INFO [sub-MJF057] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:07:55,917 INFO [sub-MJF057] normalisation done (90.6s)
+2026-11-09 14:08:17,664 INFO [sub-MJF057] time series (200, 100) (112.3s)
+2026-11-09 14:08:17,673 INFO [sub-MJF057] OK fc saved, mean|r|=0.460 (total 112.3s)
+2026-11-09 14:08:17,693 INFO [sub-MJF062] PD-NC n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:08:18,436 INFO [sub-MJF062] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:09:46,634 INFO [sub-MJF062] normalisation done (89.0s)
+2026-11-09 14:10:08,477 INFO [sub-MJF062] time series (200, 100) (110.8s)
+2026-11-09 14:10:08,485 INFO [sub-MJF062] OK fc saved, mean|r|=0.386 (total 110.8s)
+2026-11-09 14:10:08,517 INFO [sub-MJF063] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:10:09,282 INFO [sub-MJF063] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:11:39,120 INFO [sub-MJF063] normalisation done (90.6s)
+2026-11-09 14:12:00,031 INFO [sub-MJF063] time series (200, 100) (111.5s)
+2026-11-09 14:12:00,045 INFO [sub-MJF063] OK fc saved, mean|r|=0.364 (total 111.6s)
+2026-11-09 14:12:00,076 INFO [sub-MJF068] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:12:00,891 INFO [sub-MJF068] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:13:39,050 INFO [sub-MJF068] normalisation done (99.0s)
+2026-11-09 14:13:59,951 INFO [sub-MJF068] time series (200, 100) (119.9s)
+2026-11-09 14:13:59,970 INFO [sub-MJF068] OK fc saved, mean|r|=0.606 (total 119.9s)
+2026-11-09 14:13:59,997 INFO [sub-MJF069] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:14:00,805 INFO [sub-MJF069] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:15:44,151 INFO [sub-MJF069] normalisation done (104.2s)
+2026-11-09 14:16:04,601 INFO [sub-MJF069] time series (200, 100) (124.6s)
+2026-11-09 14:16:04,619 INFO [sub-MJF069] OK fc saved, mean|r|=0.482 (total 124.6s)
+2026-11-09 14:16:04,661 INFO [sub-MJF072] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:16:05,344 INFO [sub-MJF072] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:17:36,280 INFO [sub-MJF072] normalisation done (91.7s)
+2026-11-09 14:17:56,550 INFO [sub-MJF072] time series (200, 100) (111.9s)
+2026-11-09 14:17:56,553 INFO [sub-MJF072] OK fc saved, mean|r|=0.339 (total 111.9s)
+2026-11-09 14:17:56,592 INFO [sub-MJF077] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:17:57,365 INFO [sub-MJF077] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:19:39,167 INFO [sub-MJF077] normalisation done (102.6s)
+2026-11-09 14:20:01,301 INFO [sub-MJF077] time series (200, 100) (124.7s)
+2026-11-09 14:20:01,319 INFO [sub-MJF077] OK fc saved, mean|r|=0.463 (total 124.8s)
+2026-11-09 14:20:01,355 INFO [sub-MJF079] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:20:02,078 INFO [sub-MJF079] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:21:36,323 INFO [sub-MJF079] normalisation done (95.0s)
+2026-11-09 14:21:57,000 INFO [sub-MJF079] time series (200, 100) (115.7s)
+2026-11-09 14:21:57,006 INFO [sub-MJF079] OK fc saved, mean|r|=0.380 (total 115.7s)
+2026-11-09 14:21:57,038 INFO [sub-MJF080] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:21:57,726 INFO [sub-MJF080] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:23:36,230 INFO [sub-MJF080] normalisation done (99.2s)
+2026-11-09 14:23:56,805 INFO [sub-MJF080] time series (200, 100) (119.8s)
+2026-11-09 14:23:56,810 INFO [sub-MJF080] OK fc saved, mean|r|=0.467 (total 119.8s)
+2026-11-09 14:23:56,840 INFO [sub-MJF082] Control n_vol=200 bold_shape=(64, 64, 32, 200) t1_shape=(256, 256, 192)
+2026-11-09 14:23:57,513 INFO [sub-MJF082] normalisation (bold->T1 rigid, T1->MNI affine) ...
+2026-11-09 14:25:26,192 INFO [sub-MJF082] normalisation done (89.4s)
+2026-11-09 14:25:47,536 INFO [sub-MJF082] time series (200, 100) (110.7s)
+2026-11-09 14:25:47,549 INFO [sub-MJF082] OK fc saved, mean|r|=0.364 (total 110.7s)
+2026-11-09 14:25:47,549 INFO === DONE: 55 ok, 0 failed ([]) in 106.4 min ===

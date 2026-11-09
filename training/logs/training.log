@@ -1,0 +1,192 @@
+2026-11-09 14:28:14,785 INFO === Training benchmark ds005892: 5-fold stratified CV, seed 42 ===
+2026-11-09 14:28:15,252 INFO Loaded 55 subjects: X (55, 4950), mats (55, 100, 100)
+2026-11-09 14:28:15,252 INFO Class counts (3-class): {0: 22, 1: 18, 2: 15}
+2026-11-09 14:28:17,463 INFO Splits (test sizes): [11, 11, 11, 11, 11]
+2026-11-09 14:28:17,992 INFO XGBoost available
+2026-11-09 14:28:19,273 INFO [logistic_regression] acc=0.345±0.089 balacc=0.319±0.097 auc=0.540±0.163 f1=0.282±0.101
+2026-11-09 14:28:19,273 INFO [logistic_regression] confusion (rows=true, cols=pred):
+[[15  5  2]
+ [ 9  1  8]
+ [ 5  7  3]]
+2026-11-09 14:28:19,543 INFO [svm_rbf] acc=0.273±0.081 balacc=0.253±0.089 auc=0.594±0.094 f1=0.217±0.078
+2026-11-09 14:28:19,543 INFO [svm_rbf] confusion (rows=true, cols=pred):
+[[11  9  2]
+ [ 9  2  7]
+ [ 7  6  2]]
+2026-11-09 14:28:23,765 INFO [random_forest] acc=0.327±0.073 balacc=0.291±0.078 auc=0.528±0.084 f1=0.247±0.106
+2026-11-09 14:28:23,765 INFO [random_forest] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [11  2  5]
+ [ 9  5  1]]
+2026-11-09 14:28:57,109 INFO [xgboost] acc=0.309±0.073 balacc=0.280±0.075 auc=0.539±0.094 f1=0.249±0.098
+2026-11-09 14:28:57,109 INFO [xgboost] confusion (rows=true, cols=pred):
+[[13  6  3]
+ [10  2  6]
+ [ 7  6  2]]
+2026-11-09 14:29:05,182 INFO [mlp fold 0] stopped at epoch 50 (best 0), test acc=0.182 balacc=0.178
+2026-11-09 14:29:06,335 INFO [mlp fold 1] stopped at epoch 53 (best 3), test acc=0.455 balacc=0.422
+2026-11-09 14:29:07,434 INFO [mlp fold 2] stopped at epoch 52 (best 2), test acc=0.273 balacc=0.250
+2026-11-09 14:29:08,522 INFO [mlp fold 3] stopped at epoch 51 (best 1), test acc=0.455 balacc=0.444
+2026-11-09 14:29:09,715 INFO [mlp fold 4] stopped at epoch 50 (best 0), test acc=0.273 balacc=0.278
+2026-11-09 14:29:09,716 INFO [mlp] acc=0.327±0.109 balacc=0.314±0.103 auc=0.495±0.149 f1=0.282±0.109
+2026-11-09 14:29:09,716 INFO [mlp] confusion (rows=true, cols=pred):
+[[13  4  5]
+ [ 7  2  9]
+ [ 5  7  3]]
+2026-11-09 14:29:40,299 INFO [cnn1d fold 0] stopped at epoch 55 (best 5), test acc=0.273 balacc=0.244
+2026-11-09 14:30:07,306 INFO [cnn1d fold 1] stopped at epoch 59 (best 9), test acc=0.364 balacc=0.356
+2026-11-09 14:30:31,934 INFO [cnn1d fold 2] stopped at epoch 54 (best 4), test acc=0.273 balacc=0.250
+2026-11-09 14:31:07,707 INFO [cnn1d fold 3] stopped at epoch 79 (best 29), test acc=0.364 balacc=0.361
+2026-11-09 14:31:32,533 INFO [cnn1d fold 4] stopped at epoch 52 (best 2), test acc=0.091 balacc=0.083
+2026-11-09 14:31:32,533 INFO [cnn1d] acc=0.273±0.100 balacc=0.259±0.101 auc=0.495±0.142 f1=0.238±0.099
+2026-11-09 14:31:32,533 INFO [cnn1d] confusion (rows=true, cols=pred):
+[[9 8 5]
+ [6 3 9]
+ [4 8 3]]
+2026-11-09 14:31:34,629 INFO [gcn fold 0] stopped at epoch 120 (best 70), test acc=0.364 balacc=0.267
+2026-11-09 14:31:36,686 INFO [gcn fold 1] stopped at epoch 113 (best 63), test acc=0.636 balacc=0.600
+2026-11-09 14:31:40,002 INFO [gcn fold 2] stopped at epoch 204 (best 154), test acc=0.364 balacc=0.361
+2026-11-09 14:31:41,989 INFO [gcn fold 3] stopped at epoch 115 (best 65), test acc=0.455 balacc=0.444
+2026-11-09 14:31:43,823 INFO [gcn fold 4] stopped at epoch 105 (best 55), test acc=0.091 balacc=0.111
+2026-11-09 14:31:43,823 INFO [gcn] acc=0.382±0.176 balacc=0.357±0.165 auc=0.531±0.131 f1=0.315±0.182
+2026-11-09 14:31:43,823 INFO [gcn] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [10  1  7]
+ [ 4  6  5]]
+2026-11-09 14:32:12,699 INFO [gat fold 0] stopped at epoch 116 (best 66), test acc=0.455 balacc=0.378
+2026-11-09 14:32:41,129 INFO [gat fold 1] stopped at epoch 115 (best 65), test acc=0.636 balacc=0.600
+2026-11-09 14:33:17,705 INFO [gat fold 2] stopped at epoch 152 (best 102), test acc=0.364 balacc=0.361
+2026-11-09 14:33:37,585 INFO [gat fold 3] stopped at epoch 83 (best 33), test acc=0.545 balacc=0.556
+2026-11-09 14:34:03,999 INFO [gat fold 4] stopped at epoch 113 (best 63), test acc=0.091 balacc=0.111
+2026-11-09 14:34:03,999 INFO [gat] acc=0.418±0.187 balacc=0.401±0.173 auc=0.620±0.183 f1=0.362±0.166
+2026-11-09 14:34:03,999 INFO [gat] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [ 9  2  7]
+ [ 5  4  6]]
+2026-11-09 14:34:04,000 INFO Binary HC-vs-PD rerun for best 3: ['gat', 'gcn', 'logistic_regression']
+2026-11-09 14:34:04,001 INFO XGBoost available
+2026-11-09 14:34:04,489 INFO [logistic_regression] acc=0.709±0.106 balacc=0.683±0.103 auc=0.745±0.127 f1=0.680±0.105
+2026-11-09 14:34:04,490 INFO [logistic_regression] confusion (rows=true, cols=pred):
+[[13  9]
+ [ 7 26]]
+2026-11-09 14:34:04,769 INFO [svm_rbf] acc=0.636±0.129 balacc=0.612±0.123 auc=0.560±0.285 f1=0.610±0.128
+2026-11-09 14:34:04,769 INFO [svm_rbf] confusion (rows=true, cols=pred):
+[[11 11]
+ [ 9 24]]
+2026-11-09 14:34:08,795 INFO [random_forest] acc=0.618±0.106 balacc=0.559±0.096 auc=0.665±0.170 f1=0.545±0.097
+2026-11-09 14:34:08,795 INFO [random_forest] confusion (rows=true, cols=pred):
+[[ 6 16]
+ [ 5 28]]
+2026-11-09 14:34:17,987 INFO [xgboost] acc=0.600±0.109 balacc=0.550±0.116 auc=0.632±0.105 f1=0.525±0.132
+2026-11-09 14:34:17,987 INFO [xgboost] confusion (rows=true, cols=pred):
+[[ 7 15]
+ [ 7 26]]
+2026-11-09 14:34:37,895 INFO [gat fold 0] stopped at epoch 81 (best 31), test acc=0.727 balacc=0.679
+2026-11-09 14:35:00,571 INFO [gat fold 1] stopped at epoch 93 (best 43), test acc=0.818 balacc=0.804
+2026-11-09 14:35:30,267 INFO [gat fold 2] stopped at epoch 118 (best 68), test acc=0.727 balacc=0.625
+2026-11-09 14:38:26,767 INFO === Training benchmark ds005892: 5-fold stratified CV, seed 42 ===
+2026-11-09 14:38:27,901 INFO Loaded 55 subjects: X (55, 4950), mats (55, 100, 100)
+2026-11-09 14:38:27,901 INFO Class counts (3-class): {0: 22, 1: 18, 2: 15}
+2026-11-09 14:38:30,623 INFO Splits (test sizes): [11, 11, 11, 11, 11]
+2026-11-09 14:38:31,146 INFO XGBoost available
+2026-11-09 14:38:32,046 INFO [logistic_regression] acc=0.345±0.089 balacc=0.319±0.097 auc=0.540±0.163 f1=0.282±0.101
+2026-11-09 14:38:32,046 INFO [logistic_regression] confusion (rows=true, cols=pred):
+[[15  5  2]
+ [ 9  1  8]
+ [ 5  7  3]]
+2026-11-09 14:38:32,362 INFO [svm_rbf] acc=0.273±0.081 balacc=0.253±0.089 auc=0.594±0.094 f1=0.217±0.078
+2026-11-09 14:38:32,362 INFO [svm_rbf] confusion (rows=true, cols=pred):
+[[11  9  2]
+ [ 9  2  7]
+ [ 7  6  2]]
+2026-11-09 14:38:36,317 INFO [random_forest] acc=0.327±0.073 balacc=0.291±0.078 auc=0.528±0.084 f1=0.247±0.106
+2026-11-09 14:38:36,317 INFO [random_forest] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [11  2  5]
+ [ 9  5  1]]
+2026-11-09 14:39:09,124 INFO [xgboost] acc=0.309±0.073 balacc=0.280±0.075 auc=0.539±0.094 f1=0.249±0.098
+2026-11-09 14:39:09,124 INFO [xgboost] confusion (rows=true, cols=pred):
+[[13  6  3]
+ [10  2  6]
+ [ 7  6  2]]
+2026-11-09 14:39:16,924 INFO [mlp fold 0] stopped at epoch 50 (best 0), test acc=0.182 balacc=0.178
+2026-11-09 14:39:17,963 INFO [mlp fold 1] stopped at epoch 53 (best 3), test acc=0.455 balacc=0.422
+2026-11-09 14:39:18,967 INFO [mlp fold 2] stopped at epoch 52 (best 2), test acc=0.273 balacc=0.250
+2026-11-09 14:39:19,975 INFO [mlp fold 3] stopped at epoch 51 (best 1), test acc=0.455 balacc=0.444
+2026-11-09 14:39:21,033 INFO [mlp fold 4] stopped at epoch 50 (best 0), test acc=0.273 balacc=0.278
+2026-11-09 14:39:21,033 INFO [mlp] acc=0.327±0.109 balacc=0.314±0.103 auc=0.495±0.149 f1=0.282±0.109
+2026-11-09 14:39:21,033 INFO [mlp] confusion (rows=true, cols=pred):
+[[13  4  5]
+ [ 7  2  9]
+ [ 5  7  3]]
+2026-11-09 14:39:53,371 INFO [cnn1d fold 0] stopped at epoch 55 (best 5), test acc=0.273 balacc=0.244
+2026-11-09 14:40:24,262 INFO [cnn1d fold 1] stopped at epoch 59 (best 9), test acc=0.364 balacc=0.356
+2026-11-09 14:40:53,269 INFO [cnn1d fold 2] stopped at epoch 54 (best 4), test acc=0.273 balacc=0.250
+2026-11-09 14:41:34,282 INFO [cnn1d fold 3] stopped at epoch 79 (best 29), test acc=0.364 balacc=0.361
+2026-11-09 14:42:01,226 INFO [cnn1d fold 4] stopped at epoch 52 (best 2), test acc=0.091 balacc=0.083
+2026-11-09 14:42:01,227 INFO [cnn1d] acc=0.273±0.100 balacc=0.259±0.101 auc=0.495±0.142 f1=0.238±0.099
+2026-11-09 14:42:01,227 INFO [cnn1d] confusion (rows=true, cols=pred):
+[[9 8 5]
+ [6 3 9]
+ [4 8 3]]
+2026-11-09 14:42:03,234 INFO [gcn fold 0] stopped at epoch 120 (best 70), test acc=0.364 balacc=0.267
+2026-11-09 14:42:05,018 INFO [gcn fold 1] stopped at epoch 113 (best 63), test acc=0.636 balacc=0.600
+2026-11-09 14:42:08,374 INFO [gcn fold 2] stopped at epoch 204 (best 154), test acc=0.364 balacc=0.361
+2026-11-09 14:42:10,261 INFO [gcn fold 3] stopped at epoch 115 (best 65), test acc=0.455 balacc=0.444
+2026-11-09 14:42:12,015 INFO [gcn fold 4] stopped at epoch 105 (best 55), test acc=0.091 balacc=0.111
+2026-11-09 14:42:12,015 INFO [gcn] acc=0.382±0.176 balacc=0.357±0.165 auc=0.531±0.131 f1=0.315±0.182
+2026-11-09 14:42:12,015 INFO [gcn] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [10  1  7]
+ [ 4  6  5]]
+2026-11-09 14:42:40,842 INFO [gat fold 0] stopped at epoch 116 (best 66), test acc=0.455 balacc=0.378
+2026-11-09 14:43:09,135 INFO [gat fold 1] stopped at epoch 115 (best 65), test acc=0.636 balacc=0.600
+2026-11-09 14:43:47,714 INFO [gat fold 2] stopped at epoch 152 (best 102), test acc=0.364 balacc=0.361
+2026-11-09 14:44:07,942 INFO [gat fold 3] stopped at epoch 83 (best 33), test acc=0.545 balacc=0.556
+2026-11-09 14:44:36,054 INFO [gat fold 4] stopped at epoch 113 (best 63), test acc=0.091 balacc=0.111
+2026-11-09 14:44:36,065 INFO [gat] acc=0.418±0.187 balacc=0.401±0.173 auc=0.620±0.183 f1=0.362±0.166
+2026-11-09 14:44:36,065 INFO [gat] confusion (rows=true, cols=pred):
+[[15  4  3]
+ [ 9  2  7]
+ [ 5  4  6]]
+2026-11-09 14:44:36,084 INFO Checkpoint metrics.json written (3-class only, binary pending)
+2026-11-09 14:44:36,084 INFO Binary HC-vs-PD rerun for best 3: ['gat', 'gcn', 'logistic_regression']
+2026-11-09 14:44:36,099 INFO XGBoost available
+2026-11-09 14:44:36,839 INFO [logistic_regression] acc=0.709±0.106 balacc=0.683±0.103 auc=0.745±0.127 f1=0.680±0.105
+2026-11-09 14:44:36,840 INFO [logistic_regression] confusion (rows=true, cols=pred):
+[[13  9]
+ [ 7 26]]
+2026-11-09 14:44:37,147 INFO [svm_rbf] acc=0.636±0.129 balacc=0.612±0.123 auc=0.560±0.285 f1=0.610±0.128
+2026-11-09 14:44:37,148 INFO [svm_rbf] confusion (rows=true, cols=pred):
+[[11 11]
+ [ 9 24]]
+2026-11-09 14:44:41,188 INFO [random_forest] acc=0.618±0.106 balacc=0.559±0.096 auc=0.665±0.170 f1=0.545±0.097
+2026-11-09 14:44:41,189 INFO [random_forest] confusion (rows=true, cols=pred):
+[[ 6 16]
+ [ 5 28]]
+2026-11-09 14:44:51,837 INFO [xgboost] acc=0.600±0.109 balacc=0.550±0.116 auc=0.632±0.105 f1=0.525±0.132
+2026-11-09 14:44:51,837 INFO [xgboost] confusion (rows=true, cols=pred):
+[[ 7 15]
+ [ 7 26]]
+2026-11-09 14:45:15,773 INFO [gat fold 0] stopped at epoch 81 (best 31), test acc=0.727 balacc=0.679
+2026-11-09 14:45:38,970 INFO [gat fold 1] stopped at epoch 93 (best 43), test acc=0.818 balacc=0.804
+2026-11-09 14:46:08,715 INFO [gat fold 2] stopped at epoch 118 (best 68), test acc=0.727 balacc=0.625
+2026-11-09 14:47:17,426 INFO [gat fold 3] stopped at epoch 285 (best 235), test acc=0.636 balacc=0.633
+2026-11-09 14:47:53,553 INFO [gat fold 4] stopped at epoch 147 (best 97), test acc=0.636 balacc=0.667
+2026-11-09 14:47:53,553 INFO [gat] acc=0.709±0.068 balacc=0.681±0.064 auc=0.658±0.122 f1=0.668±0.073
+2026-11-09 14:47:53,554 INFO [gat] confusion (rows=true, cols=pred):
+[[14  8]
+ [ 8 25]]
+2026-11-09 14:47:54,636 INFO [gcn fold 0] stopped at epoch 55 (best 5), test acc=0.818 balacc=0.750
+2026-11-09 14:47:55,876 INFO [gcn fold 1] stopped at epoch 77 (best 27), test acc=0.818 balacc=0.804
+2026-11-09 14:47:57,480 INFO [gcn fold 2] stopped at epoch 93 (best 43), test acc=0.636 balacc=0.661
+2026-11-09 14:47:59,526 INFO [gcn fold 3] stopped at epoch 123 (best 73), test acc=0.545 balacc=0.550
+2026-11-09 14:48:01,377 INFO [gcn fold 4] stopped at epoch 103 (best 53), test acc=0.636 balacc=0.600
+2026-11-09 14:48:01,377 INFO [gcn] acc=0.691±0.109 balacc=0.673±0.093 auc=0.697±0.135 f1=0.659±0.110
+2026-11-09 14:48:01,377 INFO [gcn] confusion (rows=true, cols=pred):
+[[12 10]
+ [ 7 26]]
+2026-11-09 14:48:04,788 INFO Figures saved to /home/hatch/workspace/parkinsons-early-detection/training/figures
+2026-11-09 14:48:05,495 INFO Figures saved to /home/hatch/workspace/parkinsons-early-detection/training/figures
+2026-11-09 14:48:05,516 INFO === DONE in 9.6 min. metrics.json written ===
+2026-11-09 14:48:05,516 INFO Ranking by balanced accuracy: [('gat', 0.4011111111111111), ('gcn', 0.3566666666666667), ('logistic_regression', 0.3188888888888889), ('mlp', 0.3144444444444444), ('random_forest', 0.2911111111111111), ('xgboost', 0.27999999999999997), ('cnn1d', 0.2588888888888889), ('svm_rbf', 0.25333333333333335)]
