@@ -230,7 +230,7 @@ export default function Home() {
                 <Magnetic strength={0.22}><a className="btn-ghost" href="#how">Read the method</a></Magnetic>
               </div>
               <p className="hero-note">
-                Built for <strong>Rishabh</strong>. A research demo, not a medical device — it
+                Made by <strong>Rishabh</strong>. A research demo, not a medical device — it
                 doesn’t diagnose anyone. What it can and can’t do is written down plainly at the
                 bottom of this page.
               </p>
@@ -620,7 +620,7 @@ export default function Home() {
           <div>
             <strong>Parkinson’s Early Detection</strong>
             <p className="foot-note">
-              Built for Rishabh · Dataset: OpenNeuro ds005892 (Kemp et al., 2025) ·
+              Made by Rishabh · Dataset: OpenNeuro ds005892 (Kemp et al., 2025) ·
               Code, logs and results are public, so anyone can check the work.
             </p>
           </div>
