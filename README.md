@@ -78,6 +78,34 @@ learns each scanner's fingerprint, not the disease — site harmonisation
 is the next step, not more of the same data. Full pooled metrics:
 `training/metrics_pooled.json`.
 
+### Round 3 — completed 2026-11-10 (site harmonisation, pooled n=264)
+
+The harmonisation round: ComBat (fit only on training folds, unseen
+sites left uncorrected), per-site z-scoring, and a transductive
+ComBat upper bound (batch-only fit on all data, no labels), same
+nested protocol and models as the pooled benchmark. **It did not
+work.** Best leave-one-source-out balanced accuracy after
+harmonisation is 0.536 (ComBat SVM, AUC 0.503 — a coin flip) vs 0.512
+unharmonised; z-score best is 0.511, transductive best 0.525. Pooled
+5-fold actually fell after harmonisation (ComBat LR 0.585 vs raw
+0.600–0.620; z-score LR 0.514; transductive LR 0.457), and random
+forest collapsed to predicting every subject as PD in nearly every
+scheme. Even harmonisation that has seen the held-out site cannot
+beat chance — the cross-site disease signal in static functional
+connectivity is essentially absent, and the pooled score was the
+scanners' fingerprints. The harmonised pooled model applied to
+ds005892 scores 0.55–0.56 balanced accuracy, AUC 0.54–0.57: still
+chance. GAT/GCN were not run — with every classical model and even
+the transductive upper bound at chance, a graph model on the same
+features has no signal to find. Weights saved
+(`training/models_round3/`: ComBat LR full refit, ComBat SVM full
+refit, fitted ComBat parameters); **neither is a deployment
+candidate** — no round-3 model replaces the service weights. Full
+numbers: `training/metrics_round3.json`; model card:
+`training/MODEL_CARD.md`. The next bottleneck is the features
+themselves (dynamic connectivity, graph measures, structural +
+diffusion data), not site alignment.
+
 ### Round 1 — 2026-11-09 (archived)
 
 Stratified 5-fold CV, seed 42, n=55, no motion correction, no confound
