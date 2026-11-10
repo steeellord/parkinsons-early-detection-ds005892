@@ -2,232 +2,232 @@
   "dataset": "OpenNeuro ds005892 v1.0.0",
   "task": "3-class classification: HC vs PD-NC vs PD-MCI (binary HC vs PD secondary)",
   "status": "completed",
-  "last_updated": "2026-11-09",
+  "last_updated": "2026-11-10",
   "n_subjects": 55,
-  "protocol": "Stratified 5-fold cross-validation, seed 42, identical splits for every model. Neural models: max 1000 epochs, early stopping (patience 50).",
-  "best_model": "gat",
-  "note": "Best 3-class model is GAT at balanced accuracy 0.40 (accuracy 0.42, AUC 0.62) \u2014 only slightly above chance (0.33) on n=55, with large fold-to-fold variation. The binary HC-vs-PD task is stronger: logistic regression AUC 0.75, balanced accuracy 0.68. Distinguishing PD-NC from PD-MCI from resting-state connectivity alone is the hard part. Full logs, confusion matrices and model card are in the GitHub repository. Research demo only \u2014 not a medical diagnosis.",
+  "protocol": "Nested CV: outer stratified 5-fold (seed 42, same splits as v1); inner stratified 3-fold for all scaling, feature selection and hyperparameter search. Neural models: max 1000 epochs, early stopping (patience 50). Preprocessing v2: motion correction, Friston-24 regressors, FD scrubbing, high-variance confounds, Schaefer-100 and Schaefer-200.",
+  "best_model": "logistic",
+  "note": "Round 2 (nested cross-validation, motion correction, Friston-24 + FD scrubbing, high-variance confounds). Best 3-class model is Logistic regression at balanced accuracy 0.50 (accuracy 0.53, AUC 0.58) on Schaefer-100 parcels \u2014 atlas100 best balanced accuracy 0.50; atlas200 best balanced accuracy 0.44. Binary HC-vs-PD on this atlas: SVM (RBF) AUC 0.44, balanced accuracy 0.51 \u2014 lower than the first round's 0.74 AUC, because proper motion and noise cleaning removed signal that turned out to be noise, not brain activity (see the model card). The best binary model overall is XGBoost on Schaefer-200 (AUC 0.69). Two-stage (HC-vs-PD, then PD-NC-vs-PD-MCI) with logistic regression: combined balanced accuracy 0.40. Chance is 0.33 for 3-class. Full logs, confusion matrices and model card are in the GitHub repository. Research demo only \u2014 not a medical diagnosis.",
   "models": [
     {
-      "name": "GAT (graph attention)",
-      "accuracy": 0.418,
-      "balanced_accuracy": 0.401,
-      "auc": 0.62,
-      "f1": 0.362,
-      "accuracy_std": 0.187,
-      "balanced_accuracy_std": 0.173,
-      "auc_std": 0.183,
-      "f1_std": 0.166,
-      "confusion_matrix": [
-        [
-          15,
-          4,
-          3
-        ],
-        [
-          9,
-          2,
-          7
-        ],
-        [
-          5,
-          4,
-          6
-        ]
-      ]
-    },
-    {
-      "name": "GCN (graph convolutional)",
-      "accuracy": 0.382,
-      "balanced_accuracy": 0.357,
-      "auc": 0.531,
-      "f1": 0.315,
-      "accuracy_std": 0.176,
-      "balanced_accuracy_std": 0.165,
-      "auc_std": 0.131,
-      "f1_std": 0.182,
-      "confusion_matrix": [
-        [
-          15,
-          4,
-          3
-        ],
-        [
-          10,
-          1,
-          7
-        ],
-        [
-          4,
-          6,
-          5
-        ]
-      ]
-    },
-    {
       "name": "Logistic regression",
-      "accuracy": 0.345,
-      "balanced_accuracy": 0.319,
-      "auc": 0.54,
-      "f1": 0.282,
-      "accuracy_std": 0.089,
-      "balanced_accuracy_std": 0.097,
-      "auc_std": 0.163,
-      "f1_std": 0.101,
+      "accuracy": 0.527,
+      "balanced_accuracy": 0.502,
+      "auc": 0.579,
+      "f1": 0.481,
+      "accuracy_std": 0.156,
+      "balanced_accuracy_std": 0.161,
+      "auc_std": 0.126,
+      "f1_std": 0.174,
       "confusion_matrix": [
         [
           15,
-          5,
+          4,
+          3
+        ],
+        [
+          6,
+          10,
           2
         ],
         [
-          9,
-          1,
-          8
-        ],
-        [
+          6,
           5,
-          7,
-          3
+          4
         ]
       ]
     },
     {
-      "name": "MLP",
-      "accuracy": 0.327,
-      "balanced_accuracy": 0.314,
-      "auc": 0.495,
-      "f1": 0.282,
-      "accuracy_std": 0.109,
-      "balanced_accuracy_std": 0.103,
-      "auc_std": 0.149,
-      "f1_std": 0.109,
+      "name": "SVM (RBF)",
+      "accuracy": 0.527,
+      "balanced_accuracy": 0.481,
+      "auc": 0.559,
+      "f1": 0.453,
+      "accuracy_std": 0.068,
+      "balanced_accuracy_std": 0.088,
+      "auc_std": 0.04,
+      "f1_std": 0.099,
       "confusion_matrix": [
         [
-          13,
-          4,
-          5
-        ],
-        [
-          7,
+          17,
           2,
-          9
+          3
         ],
         [
-          5,
-          7,
+          6,
+          9,
+          3
+        ],
+        [
+          9,
+          3,
           3
         ]
       ]
     },
     {
       "name": "Random forest",
-      "accuracy": 0.327,
-      "balanced_accuracy": 0.291,
-      "auc": 0.528,
-      "f1": 0.247,
-      "accuracy_std": 0.073,
+      "accuracy": 0.455,
+      "balanced_accuracy": 0.407,
+      "auc": 0.569,
+      "f1": 0.344,
+      "accuracy_std": 0.081,
       "balanced_accuracy_std": 0.078,
-      "auc_std": 0.084,
-      "f1_std": 0.106,
+      "auc_std": 0.079,
+      "f1_std": 0.108,
       "confusion_matrix": [
         [
-          15,
-          4,
-          3
+          18,
+          3,
+          1
         ],
         [
           11,
-          2,
-          5
+          6,
+          1
         ],
         [
-          9,
-          5,
+          11,
+          3,
           1
         ]
       ]
     },
     {
-      "name": "XGBoost",
-      "accuracy": 0.309,
-      "balanced_accuracy": 0.28,
-      "auc": 0.539,
-      "f1": 0.249,
-      "accuracy_std": 0.073,
-      "balanced_accuracy_std": 0.075,
-      "auc_std": 0.094,
-      "f1_std": 0.098,
+      "name": "1D-CNN",
+      "accuracy": 0.382,
+      "balanced_accuracy": 0.373,
+      "auc": 0.525,
+      "f1": 0.317,
+      "accuracy_std": 0.106,
+      "balanced_accuracy_std": 0.058,
+      "auc_std": 0.086,
+      "f1_std": 0.061,
       "confusion_matrix": [
-        [
-          13,
-          6,
-          3
-        ],
         [
           10,
-          2,
-          6
+          5,
+          7
         ],
         [
-          7,
           6,
-          2
-        ]
-      ]
-    },
-    {
-      "name": "1D-CNN",
-      "accuracy": 0.273,
-      "balanced_accuracy": 0.259,
-      "auc": 0.495,
-      "f1": 0.238,
-      "accuracy_std": 0.1,
-      "balanced_accuracy_std": 0.101,
-      "auc_std": 0.142,
-      "f1_std": 0.099,
-      "confusion_matrix": [
-        [
-          9,
-          8,
-          5
+          5,
+          7
         ],
         [
           6,
           3,
-          9
-        ],
-        [
-          4,
-          8,
-          3
+          6
         ]
       ]
     },
     {
-      "name": "SVM (RBF)",
-      "accuracy": 0.273,
-      "balanced_accuracy": 0.253,
-      "auc": 0.594,
-      "f1": 0.217,
-      "accuracy_std": 0.081,
-      "balanced_accuracy_std": 0.089,
-      "auc_std": 0.094,
-      "f1_std": 0.078,
+      "name": "GAT (graph attention)",
+      "accuracy": 0.345,
+      "balanced_accuracy": 0.367,
+      "auc": 0.514,
+      "f1": 0.264,
+      "accuracy_std": 0.089,
+      "balanced_accuracy_std": 0.054,
+      "auc_std": 0.062,
+      "f1_std": 0.123,
+      "confusion_matrix": [
+        [
+          5,
+          8,
+          9
+        ],
+        [
+          5,
+          8,
+          5
+        ],
+        [
+          3,
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "MLP",
+      "accuracy": 0.327,
+      "balanced_accuracy": 0.356,
+      "auc": 0.562,
+      "f1": 0.298,
+      "accuracy_std": 0.169,
+      "balanced_accuracy_std": 0.179,
+      "auc_std": 0.121,
+      "f1_std": 0.17,
+      "confusion_matrix": [
+        [
+          3,
+          10,
+          9
+        ],
+        [
+          2,
+          7,
+          9
+        ],
+        [
+          3,
+          4,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "GCN (graph convolutional)",
+      "accuracy": 0.364,
+      "balanced_accuracy": 0.343,
+      "auc": 0.558,
+      "f1": 0.283,
+      "accuracy_std": 0.057,
+      "balanced_accuracy_std": 0.012,
+      "auc_std": 0.101,
+      "f1_std": 0.095,
+      "confusion_matrix": [
+        [
+          10,
+          8,
+          4
+        ],
+        [
+          8,
+          5,
+          5
+        ],
+        [
+          6,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "XGBoost",
+      "accuracy": 0.345,
+      "balanced_accuracy": 0.326,
+      "auc": 0.467,
+      "f1": 0.307,
+      "accuracy_std": 0.134,
+      "balanced_accuracy_std": 0.126,
+      "auc_std": 0.105,
+      "f1_std": 0.109,
       "confusion_matrix": [
         [
           11,
-          9,
-          2
-        ],
-        [
-          9,
-          2,
+          4,
           7
         ],
         [
-          7,
+          10,
           6,
+          2
+        ],
+        [
+          10,
+          3,
           2
         ]
       ]
@@ -235,65 +235,149 @@
   ],
   "binary_models": [
     {
-      "name": "Logistic regression",
-      "accuracy": 0.709,
-      "balanced_accuracy": 0.683,
-      "auc": 0.745,
-      "f1": 0.68,
-      "accuracy_std": 0.106,
-      "balanced_accuracy_std": 0.103,
-      "auc_std": 0.127,
-      "f1_std": 0.105,
-      "confusion_matrix": [
-        [
-          13,
-          9
-        ],
-        [
-          7,
-          26
-        ]
-      ]
-    },
-    {
-      "name": "GAT (graph attention)",
-      "accuracy": 0.709,
-      "balanced_accuracy": 0.681,
-      "auc": 0.658,
-      "f1": 0.668,
-      "accuracy_std": 0.068,
-      "balanced_accuracy_std": 0.064,
-      "auc_std": 0.122,
-      "f1_std": 0.073,
-      "confusion_matrix": [
-        [
-          14,
-          8
-        ],
-        [
-          8,
-          25
-        ]
-      ]
-    },
-    {
-      "name": "GCN (graph convolutional)",
-      "accuracy": 0.691,
-      "balanced_accuracy": 0.673,
-      "auc": 0.697,
-      "f1": 0.659,
+      "name": "SVM (RBF)",
+      "accuracy": 0.491,
+      "balanced_accuracy": 0.509,
+      "auc": 0.438,
+      "f1": 0.449,
       "accuracy_std": 0.109,
-      "balanced_accuracy_std": 0.093,
-      "auc_std": 0.135,
-      "f1_std": 0.11,
+      "balanced_accuracy_std": 0.077,
+      "auc_std": 0.072,
+      "f1_std": 0.114,
       "confusion_matrix": [
         [
           12,
           10
         ],
         [
+          18,
+          15
+        ]
+      ]
+    },
+    {
+      "name": "1D-CNN",
+      "accuracy": 0.455,
+      "balanced_accuracy": 0.455,
+      "auc": 0.359,
+      "f1": 0.38,
+      "accuracy_std": 0.129,
+      "balanced_accuracy_std": 0.081,
+      "auc_std": 0.098,
+      "f1_std": 0.103,
+      "confusion_matrix": [
+        [
+          11,
+          11
+        ],
+        [
+          19,
+          14
+        ]
+      ]
+    },
+    {
+      "name": "Random forest",
+      "accuracy": 0.527,
+      "balanced_accuracy": 0.446,
+      "auc": 0.488,
+      "f1": 0.379,
+      "accuracy_std": 0.121,
+      "balanced_accuracy_std": 0.096,
+      "auc_std": 0.128,
+      "f1_std": 0.12,
+      "confusion_matrix": [
+        [
+          1,
+          21
+        ],
+        [
+          5,
+          28
+        ]
+      ]
+    },
+    {
+      "name": "Logistic regression",
+      "accuracy": 0.473,
+      "balanced_accuracy": 0.443,
+      "auc": 0.475,
+      "f1": 0.44,
+      "accuracy_std": 0.106,
+      "balanced_accuracy_std": 0.094,
+      "auc_std": 0.142,
+      "f1_std": 0.095,
+      "confusion_matrix": [
+        [
           7,
-          26
+          15
+        ],
+        [
+          14,
+          19
+        ]
+      ]
+    },
+    {
+      "name": "GAT (graph attention)",
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.422,
+      "auc": 0.345,
+      "f1": 0.31,
+      "accuracy_std": 0.093,
+      "balanced_accuracy_std": 0.082,
+      "auc_std": 0.113,
+      "f1_std": 0.083,
+      "confusion_matrix": [
+        [
+          9,
+          13
+        ],
+        [
+          20,
+          13
+        ]
+      ]
+    },
+    {
+      "name": "XGBoost",
+      "accuracy": 0.455,
+      "balanced_accuracy": 0.404,
+      "auc": 0.362,
+      "f1": 0.376,
+      "accuracy_std": 0.081,
+      "balanced_accuracy_std": 0.072,
+      "auc_std": 0.057,
+      "f1_std": 0.078,
+      "confusion_matrix": [
+        [
+          4,
+          18
+        ],
+        [
+          12,
+          21
+        ]
+      ]
+    },
+    {
+      "name": "MLP",
+      "accuracy": 0.345,
+      "balanced_accuracy": 0.376,
+      "auc": 0.338,
+      "f1": 0.315,
+      "accuracy_std": 0.089,
+      "balanced_accuracy_std": 0.103,
+      "auc_std": 0.147,
+      "f1_std": 0.1,
+      "confusion_matrix": [
+        [
+          11,
+          11
+        ],
+        [
+          25,
+          8
         ]
       ]
     }
