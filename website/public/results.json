@@ -6,7 +6,7 @@
   "n_subjects": 55,
   "protocol": "Nested CV: outer stratified 5-fold (seed 42, same splits as v1); inner stratified 3-fold for all scaling, feature selection and hyperparameter search. Neural models: max 1000 epochs, early stopping (patience 50). Preprocessing v2: motion correction, Friston-24 regressors, FD scrubbing, high-variance confounds, Schaefer-100 and Schaefer-200.",
   "best_model": "logistic",
-  "note": "Round 2 (nested cross-validation, motion correction, Friston-24 + FD scrubbing, high-variance confounds). Best 3-class model is Logistic regression at balanced accuracy 0.50 (accuracy 0.53, AUC 0.58) on Schaefer-100 parcels \u2014 atlas100 best balanced accuracy 0.50; atlas200 best balanced accuracy 0.44. Binary HC-vs-PD on this atlas: SVM (RBF) AUC 0.44, balanced accuracy 0.51 \u2014 lower than the first round's 0.74 AUC, because proper motion and noise cleaning removed signal that turned out to be noise, not brain activity (see the model card). The best binary model overall is XGBoost on Schaefer-200 (AUC 0.69). Two-stage (HC-vs-PD, then PD-NC-vs-PD-MCI) with logistic regression: combined balanced accuracy 0.40. Chance is 0.33 for 3-class. Full logs, confusion matrices and model card are in the GitHub repository. Research demo only \u2014 not a medical diagnosis.",
+  "note": "Round 2 (nested cross-validation, motion correction, Friston-24 + FD scrubbing, high-variance confounds). Best 3-class model is Logistic regression at balanced accuracy 0.50 (accuracy 0.53, AUC 0.58) on Schaefer-100 parcels \u2014 atlas100 best balanced accuracy 0.50; atlas200 best balanced accuracy 0.44. Binary HC-vs-PD on this atlas: SVM (RBF) AUC 0.44, balanced accuracy 0.51 \u2014 lower than the first round's 0.74 AUC, because proper motion and noise cleaning removed signal that turned out to be noise, not brain activity (see the model card). The best binary model overall is XGBoost on Schaefer-200 (AUC 0.69). Two-stage (HC-vs-PD, then PD-NC-vs-PD-MCI) with logistic regression: combined balanced accuracy 0.40. Chance is 0.33 for 3-class. Full logs, confusion matrices and model card are in the GitHub repository. Research demo only \u2014 not a medical diagnosis. Round 3 (site harmonisation, ComBat, pooled n=264): best harmonised leave-one-source-out balanced accuracy 0.54 (svm_rbf, combat_loso) vs 0.51 unharmonised (xgboost). Chance is 0.50 for the binary task, so harmonisation did not lift the model above chance on a scanner it never saw \u2014 the pooled score was the scanners' fingerprints, not the disease. Harmonisation is fit on training folds only, so the leave-one-source-out numbers are the honest test of whether the model works on a scanner it never saw.",
   "models": [
     {
       "name": "Logistic regression",
@@ -381,5 +381,882 @@
         ]
       ]
     }
-  ]
+  ],
+  "round3_pooled": {
+    "n": 264,
+    "sources": [
+      "ds005892",
+      "neurocon",
+      "ppmi_v2",
+      "taowu"
+    ],
+    "protocol": "Nested CV: inner stratified 3-fold for all scaling, feature selection and hyperparameter search. Harmonisation is fit ONLY on each outer-train fold (combat/zscore); combat_trans is the labelled transductive exception (batch-only fit on all data, no labels). Pooled scheme: outer stratified 5-fold (seed 42). LOSO scheme: each fold holds out one whole source.",
+    "verdict": "Round 3 (site harmonisation, ComBat, pooled n=264): best harmonised leave-one-source-out balanced accuracy 0.54 (svm_rbf, combat_loso) vs 0.51 unharmonised (xgboost). Chance is 0.50 for the binary task, so harmonisation did not lift the model above chance on a scanner it never saw \u2014 the pooled score was the scanners' fingerprints, not the disease.",
+    "schemes": {
+      "combat_pooled": {
+        "logistic_regression": {
+          "accuracy": 0.667,
+          "accuracy_std": 0.05,
+          "balanced_accuracy": 0.585,
+          "balanced_accuracy_std": 0.051,
+          "auc": 0.651,
+          "auc_std": 0.082,
+          "f1": 0.585,
+          "f1_std": 0.053,
+          "confusion_matrix": [
+            [
+              29,
+              43
+            ],
+            [
+              45,
+              147
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5351,
+            0.5351,
+            0.6117,
+            0.5733,
+            0.6711
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.652,
+          "accuracy_std": 0.037,
+          "balanced_accuracy": 0.549,
+          "balanced_accuracy_std": 0.049,
+          "auc": 0.653,
+          "auc_std": 0.052,
+          "f1": 0.544,
+          "f1_std": 0.051,
+          "confusion_matrix": [
+            [
+              23,
+              49
+            ],
+            [
+              43,
+              149
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5351,
+            0.514,
+            0.5375,
+            0.5147,
+            0.6447
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.727,
+          "accuracy_std": 0.009,
+          "balanced_accuracy": 0.5,
+          "balanced_accuracy_std": 0.0,
+          "auc": 0.637,
+          "auc_std": 0.073,
+          "f1": 0.421,
+          "f1_std": 0.003,
+          "confusion_matrix": [
+            [
+              0,
+              72
+            ],
+            [
+              0,
+              192
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.727,
+          "accuracy_std": 0.029,
+          "balanced_accuracy": 0.544,
+          "balanced_accuracy_std": 0.023,
+          "auc": 0.622,
+          "auc_std": 0.012,
+          "f1": 0.525,
+          "f1_std": 0.033,
+          "confusion_matrix": [
+            [
+              10,
+              62
+            ],
+            [
+              10,
+              182
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5667,
+            0.507,
+            0.543,
+            0.533,
+            0.5714
+          ]
+        }
+      },
+      "combat_loso": {
+        "logistic_regression": {
+          "accuracy": 0.497,
+          "accuracy_std": 0.058,
+          "balanced_accuracy": 0.495,
+          "balanced_accuracy_std": 0.041,
+          "auc": 0.457,
+          "auc_std": 0.061,
+          "f1": 0.445,
+          "f1_std": 0.069,
+          "confusion_matrix": [
+            [
+              27,
+              45
+            ],
+            [
+              94,
+              98
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5606,
+            0.4513,
+            0.4947,
+            0.475
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.556,
+          "accuracy_std": 0.049,
+          "balanced_accuracy": 0.536,
+          "balanced_accuracy_std": 0.033,
+          "auc": 0.503,
+          "auc_std": 0.075,
+          "f1": 0.448,
+          "f1_std": 0.076,
+          "confusion_matrix": [
+            [
+              19,
+              53
+            ],
+            [
+              67,
+              125
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.553,
+            0.509,
+            0.5811,
+            0.5
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.574,
+          "accuracy_std": 0.05,
+          "balanced_accuracy": 0.498,
+          "balanced_accuracy_std": 0.003,
+          "auc": 0.44,
+          "auc_std": 0.05,
+          "f1": 0.384,
+          "f1_std": 0.038,
+          "confusion_matrix": [
+            [
+              6,
+              66
+            ],
+            [
+              47,
+              145
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.5,
+            0.492,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.571,
+          "accuracy_std": 0.039,
+          "balanced_accuracy": 0.504,
+          "balanced_accuracy_std": 0.022,
+          "auc": 0.487,
+          "auc_std": 0.064,
+          "f1": 0.396,
+          "f1_std": 0.033,
+          "confusion_matrix": [
+            [
+              8,
+              64
+            ],
+            [
+              50,
+              142
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4697,
+            0.5,
+            0.5209,
+            0.525
+          ]
+        }
+      },
+      "zscore_pooled": {
+        "logistic_regression": {
+          "accuracy": 0.64,
+          "accuracy_std": 0.041,
+          "balanced_accuracy": 0.514,
+          "balanced_accuracy_std": 0.036,
+          "auc": 0.537,
+          "auc_std": 0.049,
+          "f1": 0.513,
+          "f1_std": 0.038,
+          "confusion_matrix": [
+            [
+              17,
+              55
+            ],
+            [
+              40,
+              152
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4816,
+            0.4684,
+            0.5403,
+            0.5659,
+            0.515
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.582,
+          "accuracy_std": 0.154,
+          "balanced_accuracy": 0.484,
+          "balanced_accuracy_std": 0.018,
+          "auc": 0.562,
+          "auc_std": 0.082,
+          "f1": 0.391,
+          "f1_std": 0.082,
+          "confusion_matrix": [
+            [
+              19,
+              53
+            ],
+            [
+              57,
+              135
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4956,
+            0.4737,
+            0.4615,
+            0.4744,
+            0.5132
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.727,
+          "accuracy_std": 0.009,
+          "balanced_accuracy": 0.5,
+          "balanced_accuracy_std": 0.0,
+          "auc": 0.572,
+          "auc_std": 0.06,
+          "f1": 0.421,
+          "f1_std": 0.003,
+          "confusion_matrix": [
+            [
+              0,
+              72
+            ],
+            [
+              0,
+              192
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.708,
+          "accuracy_std": 0.025,
+          "balanced_accuracy": 0.487,
+          "balanced_accuracy_std": 0.016,
+          "auc": 0.58,
+          "auc_std": 0.037,
+          "f1": 0.415,
+          "f1_std": 0.008,
+          "confusion_matrix": [
+            [
+              0,
+              72
+            ],
+            [
+              5,
+              187
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.4737,
+            0.4615,
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "zscore_loso": {
+        "logistic_regression": {
+          "accuracy": 0.467,
+          "accuracy_std": 0.064,
+          "balanced_accuracy": 0.456,
+          "balanced_accuracy_std": 0.031,
+          "auc": 0.471,
+          "auc_std": 0.055,
+          "f1": 0.366,
+          "f1_std": 0.026,
+          "confusion_matrix": [
+            [
+              15,
+              57
+            ],
+            [
+              91,
+              101
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4242,
+            0.4423,
+            0.5059,
+            0.45
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.442,
+          "accuracy_std": 0.104,
+          "balanced_accuracy": 0.511,
+          "balanced_accuracy_std": 0.012,
+          "auc": 0.487,
+          "auc_std": 0.07,
+          "f1": 0.348,
+          "f1_std": 0.082,
+          "confusion_matrix": [
+            [
+              31,
+              41
+            ],
+            [
+              115,
+              77
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5152,
+            0.5,
+            0.5283,
+            0.5
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.541,
+          "accuracy_std": 0.081,
+          "balanced_accuracy": 0.486,
+          "balanced_accuracy_std": 0.024,
+          "auc": 0.486,
+          "auc_std": 0.063,
+          "f1": 0.365,
+          "f1_std": 0.02,
+          "confusion_matrix": [
+            [
+              7,
+              65
+            ],
+            [
+              65,
+              127
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.5,
+            0.4457,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.544,
+          "accuracy_std": 0.068,
+          "balanced_accuracy": 0.487,
+          "balanced_accuracy_std": 0.015,
+          "auc": 0.496,
+          "auc_std": 0.046,
+          "f1": 0.369,
+          "f1_std": 0.022,
+          "confusion_matrix": [
+            [
+              7,
+              65
+            ],
+            [
+              62,
+              130
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4848,
+            0.5,
+            0.4634,
+            0.5
+          ]
+        }
+      },
+      "combat_trans_pooled": {
+        "logistic_regression": {
+          "accuracy": 0.576,
+          "accuracy_std": 0.037,
+          "balanced_accuracy": 0.457,
+          "balanced_accuracy_std": 0.038,
+          "auc": 0.462,
+          "auc_std": 0.064,
+          "f1": 0.456,
+          "f1_std": 0.039,
+          "confusion_matrix": [
+            [
+              14,
+              58
+            ],
+            [
+              54,
+              138
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4553,
+            0.3956,
+            0.4789,
+            0.4432,
+            0.5113
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.59,
+          "accuracy_std": 0.14,
+          "balanced_accuracy": 0.502,
+          "balanced_accuracy_std": 0.02,
+          "auc": 0.541,
+          "auc_std": 0.043,
+          "f1": 0.433,
+          "f1_std": 0.07,
+          "confusion_matrix": [
+            [
+              22,
+              50
+            ],
+            [
+              58,
+              134
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4956,
+            0.4807,
+            0.4973,
+            0.4973,
+            0.5395
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.731,
+          "accuracy_std": 0.007,
+          "balanced_accuracy": 0.507,
+          "balanced_accuracy_std": 0.013,
+          "auc": 0.532,
+          "auc_std": 0.037,
+          "f1": 0.434,
+          "f1_std": 0.025,
+          "confusion_matrix": [
+            [
+              1,
+              71
+            ],
+            [
+              0,
+              192
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5333,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.72,
+          "accuracy_std": 0.027,
+          "balanced_accuracy": 0.504,
+          "balanced_accuracy_std": 0.029,
+          "auc": 0.517,
+          "auc_std": 0.053,
+          "f1": 0.441,
+          "f1_std": 0.052,
+          "confusion_matrix": [
+            [
+              2,
+              70
+            ],
+            [
+              4,
+              188
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4868,
+            0.4737,
+            0.5586,
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "combat_trans_loso": {
+        "logistic_regression": {
+          "accuracy": 0.519,
+          "accuracy_std": 0.042,
+          "balanced_accuracy": 0.491,
+          "balanced_accuracy_std": 0.044,
+          "auc": 0.489,
+          "auc_std": 0.045,
+          "f1": 0.432,
+          "f1_std": 0.035,
+          "confusion_matrix": [
+            [
+              18,
+              54
+            ],
+            [
+              71,
+              121
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4773,
+            0.4705,
+            0.5655,
+            0.45
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.567,
+          "accuracy_std": 0.054,
+          "balanced_accuracy": 0.525,
+          "balanced_accuracy_std": 0.046,
+          "auc": 0.472,
+          "auc_std": 0.062,
+          "f1": 0.443,
+          "f1_std": 0.07,
+          "confusion_matrix": [
+            [
+              15,
+              57
+            ],
+            [
+              54,
+              138
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5152,
+            0.509,
+            0.6009,
+            0.475
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.613,
+          "accuracy_std": 0.078,
+          "balanced_accuracy": 0.498,
+          "balanced_accuracy_std": 0.003,
+          "auc": 0.446,
+          "auc_std": 0.056,
+          "f1": 0.396,
+          "f1_std": 0.057,
+          "confusion_matrix": [
+            [
+              3,
+              69
+            ],
+            [
+              24,
+              168
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5,
+            0.5,
+            0.4938,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.577,
+          "accuracy_std": 0.046,
+          "balanced_accuracy": 0.504,
+          "balanced_accuracy_std": 0.028,
+          "auc": 0.52,
+          "auc_std": 0.057,
+          "f1": 0.391,
+          "f1_std": 0.056,
+          "confusion_matrix": [
+            [
+              7,
+              65
+            ],
+            [
+              43,
+              149
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4848,
+            0.4808,
+            0.5519,
+            0.5
+          ]
+        }
+      },
+      "raw_pooled_5fold": {
+        "logistic_regression": {
+          "accuracy": 0.663,
+          "accuracy_std": 0.069,
+          "balanced_accuracy": 0.6,
+          "balanced_accuracy_std": 0.071,
+          "auc": 0.696,
+          "auc_std": 0.079,
+          "f1": 0.595,
+          "f1_std": 0.072,
+          "confusion_matrix": [
+            [
+              33,
+              39
+            ],
+            [
+              50,
+              142
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5351,
+            0.6219,
+            0.6575,
+            0.4991,
+            0.6842
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.579,
+          "accuracy_std": 0.038,
+          "balanced_accuracy": 0.62,
+          "balanced_accuracy_std": 0.045,
+          "auc": 0.678,
+          "auc_std": 0.061,
+          "f1": 0.553,
+          "f1_std": 0.017,
+          "confusion_matrix": [
+            [
+              51,
+              21
+            ],
+            [
+              90,
+              102
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5886,
+            0.6439,
+            0.6593,
+            0.5476,
+            0.6617
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.712,
+          "accuracy_std": 0.023,
+          "balanced_accuracy": 0.529,
+          "balanced_accuracy_std": 0.028,
+          "auc": 0.69,
+          "auc_std": 0.062,
+          "f1": 0.502,
+          "f1_std": 0.055,
+          "confusion_matrix": [
+            [
+              9,
+              63
+            ],
+            [
+              13,
+              179
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5342,
+            0.5,
+            0.5101,
+            0.5201,
+            0.5808
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.712,
+          "accuracy_std": 0.026,
+          "balanced_accuracy": 0.549,
+          "balanced_accuracy_std": 0.039,
+          "auc": 0.651,
+          "auc_std": 0.039,
+          "f1": 0.536,
+          "f1_std": 0.056,
+          "confusion_matrix": [
+            [
+              14,
+              58
+            ],
+            [
+              18,
+              174
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5342,
+            0.614,
+            0.4973,
+            0.5659,
+            0.5357
+          ]
+        }
+      },
+      "raw_loso": {
+        "logistic_regression": {
+          "accuracy": 0.475,
+          "accuracy_std": 0.063,
+          "balanced_accuracy": 0.502,
+          "balanced_accuracy_std": 0.047,
+          "auc": 0.492,
+          "auc_std": 0.065,
+          "f1": 0.456,
+          "f1_std": 0.062,
+          "confusion_matrix": [
+            [
+              35,
+              37
+            ],
+            [
+              107,
+              85
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5076,
+            0.5269,
+            0.5481,
+            0.425
+          ]
+        },
+        "svm_rbf": {
+          "accuracy": 0.393,
+          "accuracy_std": 0.054,
+          "balanced_accuracy": 0.448,
+          "balanced_accuracy_std": 0.093,
+          "auc": 0.433,
+          "auc_std": 0.102,
+          "f1": 0.373,
+          "f1_std": 0.055,
+          "confusion_matrix": [
+            [
+              44,
+              28
+            ],
+            [
+              130,
+              62
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4394,
+            0.5295,
+            0.5236,
+            0.3
+          ]
+        },
+        "random_forest": {
+          "accuracy": 0.582,
+          "accuracy_std": 0.05,
+          "balanced_accuracy": 0.49,
+          "balanced_accuracy_std": 0.022,
+          "auc": 0.465,
+          "auc_std": 0.061,
+          "f1": 0.392,
+          "f1_std": 0.038,
+          "confusion_matrix": [
+            [
+              5,
+              67
+            ],
+            [
+              42,
+              150
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.5076,
+            0.5,
+            0.4519,
+            0.5
+          ]
+        },
+        "xgboost": {
+          "accuracy": 0.558,
+          "accuracy_std": 0.045,
+          "balanced_accuracy": 0.512,
+          "balanced_accuracy_std": 0.061,
+          "auc": 0.451,
+          "auc_std": 0.078,
+          "f1": 0.422,
+          "f1_std": 0.064,
+          "confusion_matrix": [
+            [
+              13,
+              59
+            ],
+            [
+              52,
+              140
+            ]
+          ],
+          "per_fold_balanced_accuracy": [
+            0.4773,
+            0.4564,
+            0.6142,
+            0.5
+          ]
+        }
+      }
+    }
+  }
 }
