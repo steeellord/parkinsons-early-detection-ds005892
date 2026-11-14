@@ -106,6 +106,84 @@ numbers: `training/metrics_round3.json`; model card:
 themselves (dynamic connectivity, graph measures, structural +
 diffusion data), not site alignment.
 
+### Round 4 — completed 2026-11-14 (richer features, enlarged pool n=395)
+
+The richer-features round: dynamic connectivity, graph measures,
+ALFF/fALFF, ReHo and structural MRI, pooled across 7 sources
+(n=395 binary, HC 101 / PD 294: ds000245 45, ds001354 28, ds004392 58,
+ds005892 55, Neurocon 41, PPMI-195 128, Tao Wu 40), plus cognition
+staging (NC/MCI/PDD, n=78). Same nested protocol and models as
+before, plus a soft-voting ensemble. **It did not work either.**
+Pooled 5-fold best is 0.706 (SVM, derived fusion, n=209; the screening
+pass on the same feature family reached 0.740 with LR), but leave-one-source-out stays at
+chance: the best honest LOSO balanced accuracy is 0.564 (ensemble,
+derived fusion, n=209 — the only arm with no single-class fold). The
+headline 0.611 (SVM, raw fusion) is inflated by the all-PD ds004392
+fold, where balanced accuracy is just PD recall; without that fold it
+is 0.522. ComBat still does not help (LOSO LR 0.592 as reported,
+0.561 without the all-PD fold). Cognition staging: pooled LR 0.570,
+LOSO SVM 0.450 — but the LOSO SVM calls almost every subject MCI
+(recall 0.94 MCI, 0.00 NC, 0.00 PDD), so it stages nothing.
+Sex-stratified accuracy shows no meaningful gap (pooled LR: men
+0.60, women 0.57; PDD is all male, so no female PDD accuracy
+exists). The ds006224 test-retest probe (5 subjects, 3 sessions
+each, excluded from training): connectivity is stable within a
+person (r 0.59) vs between people (r 0.42), but the best model's PD
+probabilities flip across sessions for 3 of 5 subjects. **The 90%
+target was not reached on any honest test.** The bottleneck is the
+cross-site disease signal in resting-state connectivity at this
+sample size — not the model, the harmonisation, or the feature list.
+Full numbers: `training/metrics_round4.json`; model card:
+`training/MODEL_CARD.md`; probe: `training/probe_6224.json`;
+sex-stratified re-run: `training/sex_stratified_cog.json`. Weights
+saved (`training/models_round4/`, picked SVM refits) — **neither is
+a deployment candidate**.
+
+### Round 4B — completed 2026-11-14 (time-series statistics, unified blocks n=395)
+
+Per-parcel time-series statistics (std, skew, kurtosis, lag-1
+autocorrelation, Hurst, spectral entropy) plus per-subject brain
+states, on the same 7-source pool, with five extra model families
+(extra trees, Gaussian process, balanced bagging, calibrated LR,
+stacking). **It did not work either.** Pooled 5-fold best is 0.718
+(stacking, derived-fusion subset, n=209), but the best honest
+leave-one-source-out balanced accuracy is 0.591 (balanced bagging,
+same n=209 subset, 3 folds) — and on the full n=395 pool the B arms
+are 0.49–0.50 honest, i.e. chance. The clean pipeline-mismatch test
+(b264_SG_unified vs the finisher's arm264_SG, same 264 subjects and
+blocks, only ds005892 reprocessed through the unified pipeline):
+pooled 0.633 vs 0.601, LOSO 0.517 vs 0.498, and on the ds005892 fold
+itself +0.015 (LR) / +0.038 (XGB) / 0.000 (SVM, RF) — unification did
+not recover accuracy, so the drop is a site effect, not a pipeline
+effect. Cognition staging (B block, n=78): pooled LR 0.427, LOSO
+0.433 on a single fold — still chance. The full run was
+early-stopped (fast LOSO at chance for 4 of 6 arms); only the two
+survivors got manual full runs, and those are partial (b209
+complete, b186 pooled 7/10 models, LOSO 4/10) because VM restart 45
+killed them and the early-stop guard blocks relaunching. **The 90%
+target was not reached.** Full numbers:
+`training/metrics_round4.json` (4B arms merged 2026-11-14); model
+card: `training/MODEL_CARD.md`. No 4B weights were saved — no arm
+beats the finisher's honest best by a margin worth refitting.
+
+### Round 4C — completed 2026-11-14 (site-invariant transforms, fast screening only, n=395)
+
+Rank, stable-rank, rank-Gaussian, age-residualised and per-site
+z-score transforms of the common blocks, plus lag-1 precision and
+partial correlation, a LOSO feature selector and a block stacker.
+**None of them helped.** Pooled 5-fold best is 0.622 (SVM,
+stable-rank), but the best honest leave-one-source-out balanced
+accuracy is 0.533 (SVM, lag-1 precision) — chance, after removing
+the all-PD ds004392 fold, which inflates the reported numbers badly
+here (rank-Gaussian scores a perfect 1.000 on that fold with all
+four models). The LOSO selector (0.498 honest) and the block stacker
+(0.492 honest) also fail: there is no feature subset in these blocks
+that generalises across sites. The full run was skipped by the
+early-stop rule because fast LOSO was at chance. **The 90% target
+was not reached.** Full numbers: `training/metrics_round4.json`
+(4C arms merged 2026-11-14); model card:
+`training/MODEL_CARD.md`.
+
 ### Round 1 — 2026-11-09 (archived)
 
 Stratified 5-fold CV, seed 42, n=55, no motion correction, no confound
